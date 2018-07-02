@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Create User</title>
 </head>
+
 <body>
     <form id="user-create-form" action="./api/user" method="post">
-        
+
         <!-- Add user input fields here -->
+        <p>Enter e-mail receive Spam here:</p>
+        <input type="text" id="email">
+        <p>Enter user name here, no password needed super secure</p>
+        <input type="text" id="userName">
+        <p>This is a password?</p>
+        <input type="password" id="password">
+        <p>Security Question: Are you considered to be a cool person</p>
+        <input type="text" id="securityQuestion">
 
         <button type="submit">Create User</button>
     </form>
+    <script src="index.js"></script>
 </body>
+
 </html>
