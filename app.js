@@ -23,7 +23,7 @@ function checkUserName(userObject, res) {
     console.log("checkusername")
     for (let i = 0; i < users.length; i++) {
         if (users[i].userName === userObject.userName) {
-            // res.status(409)
+            res.status(409)
             res.send({ message: "Error, username Exists" })
             return
         }

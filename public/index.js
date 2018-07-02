@@ -16,14 +16,14 @@ function action(event) {
     userListObj.userName = userName
     userListObj.password = password
     userListObj.securityQuestion = securityQuestion
-    console.log(userListObj)
-    console.log(JSON.stringify(userListObj))
+    // console.log(userListObj)
+    // console.log(JSON.stringify(userListObj))
     const jsonUserListObj = JSON.stringify(userListObj)
     postUser(jsonUserListObj)
 }
 
 function postUser(userInfo) {
-    console.log('again user', userInfo)
+    // console.log('again user', userInfo)
     fetch(`./api/user`, {
         method: 'POST',
         body: userInfo,
@@ -31,6 +31,19 @@ function postUser(userInfo) {
             'Content-Type': 'application/json'
         }
     }).then(res => res.json())
-        .then(data => console.log('Reached Server, Server Message:', data))
-        .catch(error => console.error('Error:', error))
+        .then(data => {
+            console.log('Reached Server, Server Message:', data)
+            if (data.message === "Error, username Exists") {
+                document.getElementById("error").textContent = "Username Exists"
+                document.getElementById("error").style.color = "red"
+            } else {
+
+                document.getElementById("error").textContent = "Username Works, Nice Pick!"
+                document.getElementById("error").style.color = "green"
+
+            }
+        })
+
+        .catch(error => console.log('Error:', error))
+
 }
