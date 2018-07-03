@@ -6,25 +6,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Create User</title>
+
 </head>
 
 <body>
     <form id="user-create-form" action="./api/user" method="post">
 
         <!-- Add user input fields here -->
-        <p>Enter e-mail receive Spam here:</p>
-        <input type="text" id="email">
-        <p>Enter user name here, no password needed super secure</p>
-        <input type="text" id="userName">
-        <div id="error"></div>
-        <p>This is a password?</p>
-        <input type="password" id="password">
-        <p>Security Question: Are you considered to be a cool person</p>
-        <input type="text" id="securityQuestion">
+        <fieldset>
+            <legend>Contact info</legend>
+            <section>
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+            </section>
 
-        <button type="submit">Create User</button>
+            <section>
+                <label>E-mail</label>
+                <input type="email" id="email" name="email">
+            </section>
+
+            <section>
+                <label>Website</label>
+                <input type="url" id="website" name="website">
+            </section>
+        </fieldset>
+
+        <section>
+            <fieldset>
+                <legend>What is your favorite way to be spammed? "communication"</legend>
+                <ul>
+                    <li>
+                        <label for="Phone">Phone</label>
+                        <input type="radio" id="Phone" name="phone" value="Phone">
+                    </li>
+                    <li>
+                        <label for="Email">Email</label>
+                        <input type="radio" id="E-mail" name="email" value="Phone">
+                    </li>
+                </ul>
+            </fieldset>
+        </section>
+
+        <section>
+            <fieldset>
+                <legend>Devices Owned</legend>
+                <label for="Phone">Mobile Phone</label>
+                <input type="checkbox" name="mobile" value="mobile" id="mobile">
+                <label for="Mac">Mac</label>
+                <input type="checkbox" name="mac" value="mac" id="mac">
+                <label for="Windows">Windows</label>
+                <input type="checkbox" name="windows" value="windows" id="windows">
+                <label for "Amish">Amish</label>
+                <input type="checkbox" name="Amish" value="Amish" id="amish">
+            </fieldset>
+        </section>
+
+        <fieldset>
+            <legend>Account Info</legend>
+            <section>
+                <label>Desired Username:</label>
+                <input type="text" id="userName" autofocus name="userName">
+                <div id="error">User Name Availability</div>
+            </section>
+
+            <section>
+                <label>User type</label>
+                <select id="userType" name="userType">
+                    <option value="user" name="userType">User</option>
+                    <option value="moderator" name="userType">Moderator</option>
+                    <option value="admin" name="userType">Administrator</option>
+                </select>
+            </section>
+
+            <section>
+                <label>Password:</label>
+                <input type="password" id="password" name="password">
+            </section>
+
+            <section>
+                <label>Security Question: Are you considered to be a cool person</label>
+                <br>
+
+                <select disabled id="securityQuestion">
+                    <optgroup label="In reality">
+                        <option value="no">No</option>
+                    </optgroup>
+
+                    <optgroup label="My mother says...">
+                        <option value="Yes">Yes</option>
+                        <option value="Meh">Meh</option>
+                    </optgroup>
+                </select>
+            </section>
+
+            <section>
+                <label>How likely will you refer us? On a scale 7-33, 28 being the most</label>
+                <br>
+                <input type="range" name="secretNumber" id="count" min="7" max="33" step="2">
+                <article class="countDisplay"></article>
+            </section>
+
+
+            <section>
+                <button type="submit">Create User</button>
+                <input type="reset">
+            </section>
+        </fieldset>
     </form>
     <script src="index.js"></script>
+
 </body>
 
 </html>

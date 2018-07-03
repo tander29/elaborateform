@@ -7,15 +7,27 @@ userCreateSubmitButton.addEventListener("click", action)
 
 function action(event) {
     event.preventDefault()
-    const email = document.getElementById("email").value
-    const userName = document.getElementById("userName").value
-    const password = document.getElementById("password").value
-    const securityQuestion = document.getElementById("securityQuestion").value
+    userListObj = {
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        userName: document.getElementById("userName").value,
+        password: document.getElementById("password").value,
+        securityQuestion: document.getElementById("securityQuestion").value,
+        website: document.getElementById("website").value,
+        ownPhone: document.getElementById("mobile").value,
+        ownMac: document.getElementById("mac").value,
+        ownWindows: document.getElementById("windows").value,
+        isAmish: document.getElementById("amish").value,
+        userType: document.getElementById("userType").value,
+        satisfaction: document.getElementById("count").value
 
-    userListObj.email = email
-    userListObj.userName = userName
-    userListObj.password = password
-    userListObj.securityQuestion = securityQuestion
+
+    }
+
+    // userListObj.email = email
+    // userListObj.userName = userName
+    // userListObj.password = password
+    // userListObj.securityQuestion = securityQuestion
     // console.log(userListObj)
     // console.log(JSON.stringify(userListObj))
     const jsonUserListObj = JSON.stringify(userListObj)
@@ -46,4 +58,14 @@ function postUser(userInfo) {
 
         .catch(error => console.log('Error:', error))
 
+}
+
+
+let counter = document.querySelector('#count');
+let countDisplay = document.querySelector('.countDisplay');
+
+countDisplay.textContent = counter.value;
+
+counter.oninput = function () {
+    countDisplay.textContent = counter.value;
 }
